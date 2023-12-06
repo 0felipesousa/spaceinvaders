@@ -1,8 +1,10 @@
 import turtle
 from game import Game
+from invader import Invader
 def main():
+    game = choose_level() 
+    invader = Invader(game)
     game = Game()
-
     turtle.listen()
     turtle.onkey(game.player.move_left, 'Left')
     turtle.onkey(game.player.move_right, 'Right')
@@ -65,6 +67,17 @@ def main():
                 game_over.write("GAME OVER", False, align="center", font=("Arial", 30, "normal"))
                 game_over.hideturtle()
                 turtle.done()
+                
+def choose_level():
+    while True:
+        try:
+            level = int(input("Escolha o nível (1 para fácil, 2 para normal, 3 para difícil): "))
+            if 1 <= level <= 3:
+                return level
+            else:
+                print("Por favor, escolha um nível válido.")
+        except ValueError:
+            print("Por favor, insira um número válido.")
 
 if __name__ == "__main__":
     main()

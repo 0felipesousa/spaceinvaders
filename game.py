@@ -11,6 +11,7 @@ class Game:
         self.wn.title("Space Invader")
         turtle.register_shape('imagem/invader.gif')
         turtle.register_shape('imagem/player.gif')
+        self.level = None
 
         self.border = turtle.Turtle()
         self.border.speed(0)
